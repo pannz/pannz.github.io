@@ -47,15 +47,17 @@
 
 
 
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
 
 
 
 
 <script>
   var CONFIG = {
-    search: false,
+    search: true,
     searchPath: "/search.xml",
-    fancybox: false,
+    fancybox: true,
     toc: true,
   }
 </script>
@@ -102,6 +104,15 @@
         </li>
       </a>
     
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
   </ul>
 </nav>
 
@@ -132,6 +143,23 @@
           </a>
         </li>
       
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+      
+        <li class="menu-search">
+          <form>
+            <i class="iconfont icon-search" id="open-search"></i>
+            <input type="text" class="search-input" id="search-input" />
+            <i class="iconfont icon-close" id="close-search"></i>
+          </form>
+        </li>
       
     </ul>
   
@@ -144,6 +172,47 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts">
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2017/05/07/Immutable-js-little-note/">little note for Immutable.js</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017年5月7日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>在react里面，每调用一次<code>setState</code>方法都会触发(一般情况对于state变化shouldComponentUpdate方法里都是return true)<code>Virtual DOM</code>的Diff操作，尽管可能并未更新原生DOM，Diff操作也会带来性能的开销。</p>
+<p>而对于<code>Mutable</code>的对象的低效率操作主要体现在复制和比较上，而<code>Immutable</code>对象就是解决了这两大低效的痛点。<br>普通的<code>Mutable</code>对象的深拷贝操作会将一整份数据都复制一遍，而<code>Immutable</code>对象在修改数据时并不会复制一整份数据，而是将变化的节点与未变化的节点的父子关系转移到一个新节点上，类似于链表的结构。从 “复制” 的角度来看，做到了最小化的复制，未变化的部分都是共享的，<code>Mutable</code>在复制的时候是 “全量”，而<code>Immutable</code>复制的是 “增量”，对于内存空间的使用率的比较高低立判。<br>并且基于每次修改一个<code>Immutable</code>对象都会创建一个新的<code>Immutable</code>对象的这种特性可以将数据的修改状态保存成一组快照，这也是挺方便的。</p>
+<p>部分出自雨夜带刀blog文章<a href="http://stylechen.com/react-and-immutable.html" target="_blank" rel="external">从 React 的组件更新谈 Immutable 的应用</a>, 有改动。</p>
+<p>对于immutable，如果用多一点，你会发现一个库seamless-immutable，使immutable使用更加无缝</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
     
       
   <article class="post">
@@ -304,7 +373,7 @@
     
       
         
-          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+          <a href="mailto:wojiaopanzhfian@gmail.com" class="iconfont icon-email" title="email"></a>
         
       
     
@@ -319,9 +388,21 @@
       
     
       
-    
+        
+          <a href="https://github.com/pannz/" class="iconfont icon-github" title="github"></a>
+        
       
     
+      
+        
+          <a href="http://weibo.ocm/panzhifan" class="iconfont icon-weibo" title="weibo"></a>
+        
+      
+    
+      
+        
+          <a href="https://www.zhihu.com/people/pan-zhi-fan/activities" class="iconfont icon-zhihu" title="zhihu"></a>
+        
       
     
       
@@ -347,8 +428,6 @@
   <span class="copyright-year">
     
     &copy; 
-     
-      2015 - 
     
     2017
 
@@ -369,6 +448,8 @@
 
 
     
+  
+
 
 
 
@@ -382,11 +463,39 @@
   
 
   
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
 
 
     <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
 <script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
 
     
+  <script type="text/html" id="search-result">
+    <article class="post">
+      <header class="post-header">
+        <h1 class="post-title">
+          <a href="$url$" class="post-link">
+            $title$
+          </a>
+        </h1>
+      </header>
+      <div class="post-content">
+        $content$
+        <div class="read-more">
+          <a href="$url$" class="read-more-link">
+            阅读更多
+          </a>
+        </div>
+      </div>
+    </article>
+  </script>
+  <script type="text/html" id="no-search-result">
+    <div class="no-result">
+      <h2>No result found!</h2>
+    </div>
+  </script>
+  <script type="text/javascript" src="/js/src/search.js?v=2.4.x"></script>
+
   </body>
 </html>
