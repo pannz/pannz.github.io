@@ -41,7 +41,7 @@
 <meta property="og:url" content="http://pannz.github.io/2017/05/06/git-cooperate-note/index.html">
 <meta property="og:site_name" content="烹牛宰羊且为乐">
 <meta property="og:description" content="一直以来，我在前几家公司的git协作方式都是使用git分支来协作的：以master分支作为线上部署代码来源，通过master上打tag，以打的tag的版本号来作为发布版本。开发的都是以develop作为开发分支，类似gitflow的协作模型，各个开发从develop分支checkout出新分支，比如 feature/someFeature，或者bugfix/bugMum等，当然不一定完全遵守git">
-<meta property="og:updated_time" content="2017-07-02T08:58:38.000Z">
+<meta property="og:updated_time" content="2017-07-02T09:06:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git协作小记">
 <meta name="twitter:description" content="一直以来，我在前几家公司的git协作方式都是使用git分支来协作的：以master分支作为线上部署代码来源，通过master上打tag，以打的tag的版本号来作为发布版本。开发的都是以develop作为开发分支，类似gitflow的协作模型，各个开发从develop分支checkout出新分支，比如 feature/someFeature，或者bugfix/bugMum等，当然不一定完全遵守git">
@@ -197,6 +197,7 @@
     <div class="post-content">
       
         <p>一直以来，我在前几家公司的git协作方式都是使用git分支来协作的：以<code>master</code>分支作为线上部署代码来源，通过<code>master</code>上打tag，以打的tag的版本号来作为发布版本。<br>开发的都是以<code>develop</code>作为开发分支，类似<code>gitflow</code>的协作模型，各个开发从<code>develop</code>分支checkout出新分支，比如 <code>feature/someFeature</code>，或者<code>bugfix/bugMum</code>等，当然不一定完全遵守<code>gitflow</code>模型，总体思路是一致的。合并的时候一般对分支作权限，比如一般开发没有往<code>develop</code>的push或者merge权限，需要在本地自己的开发分支先merge <code>develop</code>分支代码，然后发起一个pull request（gitlab为merge request）这样项目负责人accept pr的时候就不会发生冲突。</p>
+<a id="more"></a>
 <p>最近在新公司采取的是另外一种git协作模式，采用的fork协作。就是对源代码fork一份代码出来，然后本地自己开发，同时需要sync源库的代码。挺奇怪的</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add upstream git@github:yourgitrepo.git</div></pre></td></tr></table></figure>
 <p>然后sync远程的源库代码需要</p>

@@ -196,97 +196,14 @@
       
         
         
+          
+        
 
         
           <p>这篇文章是我在<a href="www.zcfy.cc">众成翻译</a>上认领的一篇翻译文章，前后断断续续翻译了大概一周时间，翻译的不好大家见谅。<br>原文：<a href="https://www.sitepoint.com/redux-vs-mobx-which-is-best/" target="_blank" rel="external">Redux vs MobX: Which Is Best for Your Project?’</a><br>译文：<a href="http://www.zcfy.cc/article/3313" target="_blank" rel="external">Redux vs MobX: 哪个更适合你的项目</a></p>
-<h2 id="下面是译文："><a href="#下面是译文：" class="headerlink" title="下面是译文："></a>下面是译文：</h2><p><img src="http://p0.qhimg.com/t0180078822b48182f6.png" alt="Pieces of data shaped like birds, migrating Redux to MobX"></p>
-<p>对于很多 JavaScript 开发者，对 redux 最大的抱怨来主要在于当使用 redux 来实现需求的时候需要写大量的模板代码。一个更好的选择是 mobx，mobx 提供了类似的功能但是只需要写更少量的代码。</p>
-<h3 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h3><ul>
-<li><p><a href="https://www.sitepoint.com/beginners-guide-node-package-manager/?utm_source=sitepoint&amp;utm_medium=relatedinline&amp;utm_term=&amp;utm_campaign=relatedauthor" target="_blank" rel="external"> Node 包管理器 npm 初学者指南</a></p>
-</li>
-<li><p><a href="https://www.sitepoint.com/10-jquery-html5-audio-players/?utm_source=sitepoint&amp;utm_medium=relatedinline&amp;utm_term=&amp;utm_campaign=relatedauthor" target="_blank" rel="external">10 个 jQuery 版本的 HTML5 音乐播放器</a></p>
-</li>
-</ul>
-<p>对于 Mobx 新手，你可以快速浏览下这篇由 Mobx 的创造者写的<a href="https://medium.com/@mweststrate/becoming-fully-reactive-an-in-depth-explanation-of-mobservable-55995262a254" target="_blank" rel="external">介绍</a>。你同样可以通过这个 <a href="https://www.sitepoint.com/manage-javascript-application-state-mobx/" target="_blank" rel="external">教程</a> 来获得一些实践经验。</p>
-<p>本篇文章的目标是帮助 JavaScript 开发者来决定这两种状态管理方案哪一种最适合自己的项目。我已经迁移了这个 <a href="https://www.sitepoint.com/crud-app-react-redux-feathersjs/" target="_blank" rel="external">CRUD Redux 项目</a> 到 <a href="https://www.github.com/brandiqa/mobx-crud-example" target="_blank" rel="external">MobX</a> 版本来作为这篇文章的例子。我将会讨论下使用 Mobx 的优势与缺点，同时我会用实际的代码片段来展示这个两个版本的不同之处。</p>
-<p>本文提到的项目的代码可以在 GitHub 上找到:</p>
-<ul>
-<li><p><a href="https://github.com/sitepoint-editors/redux-crud-example" target="_blank" rel="external">Redux CRUD example</a></p>
-</li>
-<li><p><a href="https://github.com/sitepoint-editors/mobx-crud-example" target="_blank" rel="external">MobX CRUD example</a></p>
-</li>
-</ul>
-<h2 id="Redux-和-MobX-有哪些共同点"><a href="#Redux-和-MobX-有哪些共同点" class="headerlink" title="Redux 和 MobX 有哪些共同点?"></a>Redux 和 MobX 有哪些共同点?</h2><p>首先，我们先看看他们都有的共同点：</p>
-<ul>
-<li><p>都是开源的</p>
-</li>
-<li><p>提供客户端状态管理</p>
-</li>
-<li><p>支持时间旅行调试工具 <a href="https://github.com/zalmoxisus/redux-devtools-extension" target="_blank" rel="external">redux-devtools-extension</a></p>
-</li>
-<li><p>不依赖于某个特定框架</p>
-</li>
-<li><p>对 React/React Native 有着良好的支持</p>
-</li>
-</ul>
-<h2 id="使用-Mobx-的四个理由"><a href="#使用-Mobx-的四个理由" class="headerlink" title="使用 Mobx 的四个理由"></a>使用 Mobx 的四个理由</h2><p>现在我们来看看 Redux 与 Mobx 间的主要不同点。</p>
-<h3 id="1-易于学习和使用"><a href="#1-易于学习和使用" class="headerlink" title="1. 易于学习和使用"></a>1. 易于学习和使用</h3><p>对于一个初学者，学 30 分钟就能够学会怎么使用 Mobx。一旦你学习了 Mobx 的基本概念，仅此而已，那就够了。你不需要在学别的新东西。相比起来，Redux 的基本概念同样简单，然而，当你开始构建更加复杂的应用，你就不得不面对：</p>
-<ul>
-<li><p>使用 <a href="https://github.com/gaearon/redux-thunk" target="_blank" rel="external">redux-thunk</a> 处理异步 action</p>
-</li>
-<li><p>使用 <a href="https://github.com/redux-saga/redux-saga" target="_blank" rel="external">redux-saga</a> 简化代码</p>
-</li>
-<li><p>定义 selectors 来处理计算值等.</p>
-</li>
-</ul>
-<p>使用 MobX, 所有的这些情况都被魔法般的考虑到。你不需要额外的库去处理这些情况。</p>
-<h3 id="2-写更少的代码"><a href="#2-写更少的代码" class="headerlink" title="2. 写更少的代码"></a>2. 写更少的代码</h3><p>在 Redux 里要实现一个特性，你需要更改至少 4 个部件。这包括 reducers，actions，容器组件和组件的代码。如果你在一个小型项目上使用你会特别烦恼。Mobx 只要求你更改最少 2 个部件（比如：store 和 视图组件）。</p>
-<h3 id="3-完整支持面向对象编程"><a href="#3-完整支持面向对象编程" class="headerlink" title="3. 完整支持面向对象编程"></a>3. 完整支持面向对象编程</h3><p>如果你更趋向于写面向对象的代码，你会很高兴的知道在 Mobx 里你可以使用 OOP 来实现应用逻辑的状态管理。通过对形如 <code>@observable</code> 和 <code>@observer</code> 的装饰器的使用，你可以很简单的使你的普通的 JavaScript 组件和 stores 变得响应式的。如果你更喜欢函数式编程，没问题，那也很好的被支持。而 Redux 则处于另一面，很大程度上是朝向着函数式编程的原则。但是，如果你想要一个基于 class 类的形式，你也可以使用 <a href="https://github.com/evturn/redux-connect-decorator" target="_blank" rel="external">redux-connect-decorator</a></p>
-<h3 id="4-易于处理嵌套数据"><a href="#4-易于处理嵌套数据" class="headerlink" title="4. 易于处理嵌套数据"></a>4. 易于处理嵌套数据</h3><p>在大多数的 JavaScript 应用中，你会发现你与关联的数据或者嵌套的数据一起打交道。为了能够在 Redux store里使用，你不得不先对数据进行 <a href="http://redux.js.org/docs/recipes/reducers/NormalizingStateShape.html" target="_blank" rel="external">normalize</a> . 然后, 你不得不 <a href="http://redux.js.org/docs/recipes/reducers/UpdatingNormalizedData.html" target="_blank" rel="external">多写一些代码</a> 来管理被 normalize 后的数据中的关联的引用。<br>在 Mobx 中，在 store 里存储未 normalize 的数据是受 <a href="https://mobx.js.org/best/store.html" target="_blank" rel="external">推荐</a> 的。Mobx 可以保持数据的引用，这样你可以自动的重新渲染变化。通过使用领域对象来存储数据，你可以在另外的 store 里直接的引用不同的领域数据。此外你可以使用 <a href="https://mobx.js.org/refguide/computed-decorator.html" target="_blank" rel="external">(@)computed decorators</a> 和 <a href="https://mobx.js.org/refguide/modifiers.html" target="_blank" rel="external">observables 的修饰器</a> 来十分方便的解决复杂的数据挑战。</p>
-<h2 id="不使用-Mobx-的三个理由"><a href="#不使用-Mobx-的三个理由" class="headerlink" title="不使用 Mobx 的三个理由"></a>不使用 Mobx 的三个理由</h2><h3 id="1-过于自由"><a href="#1-过于自由" class="headerlink" title="1. 过于自由"></a>1. 过于自由</h3><p>Redux 是一个对如何写状态代码提供了严格的指导方针的框架。这意味着你可以轻易的写测试和开发可维护的代码。Mobx 则是对怎么写代码没有任何的规则和限制。所以用 Mobx 的风险在于你很容易就走捷径和应用快速修复的代码，这些会导致不可维护的代码。</p>
-<h3 id="2-难于调试"><a href="#2-难于调试" class="headerlink" title="2. 难于调试"></a>2. 难于调试</h3><p>Mbox 通过内部的“魔法”方法来处理大量的逻辑，使得你的应用是响应式的。当你在 store 和组件之间传递数据，这里有一些区域是你看不到的，当你的应用出现 bug 的时候你就很难调试。如果你没有使用 <code>@actions</code> 装饰器就在组件内直接改变 state， 你将很难精确的定位到一个错误的来源。</p>
-<h3 id="3-可能还有比-Mobx-更好的选择"><a href="#3-可能还有比-Mobx-更好的选择" class="headerlink" title="3. 可能还有比 Mobx 更好的选择"></a>3. 可能还有比 Mobx 更好的选择</h3><p>在软件开发中，新趋势会一直发生。在短短的几年内，当前的软件技术可能会很快的失去力量。目前，还有几种解决方案与 Redux 和 Mobx 相竞争。一些例子： <a href="https://www.sitepoint.com/react-data-fetching-with-relay/" target="_blank" rel="external">Relay/Apollo &amp; GraphQL</a>, <a href="http://alt.js.org/" target="_blank" rel="external">Alt.js</a> 和 <a href="https://jumpsuit.js.org/" target="_blank" rel="external">Jumpsuit</a>. 所有的这些技术都有潜力变成最流行的方案，如果你真的想要知道那个方案最适合你，你不得不尝试所有这些方案。</p>
-<h2 id="代码比较-Redux-vs-MobX"><a href="#代码比较-Redux-vs-MobX" class="headerlink" title="代码比较: Redux vs MobX"></a>代码比较: Redux vs MobX</h2><p>理论已经说的够多了，让我们来看看代码。首先，我们先比较每个版本的代码是怎么做初始引导的。</p>
-<h3 id="初始引导"><a href="#初始引导" class="headerlink" title="初始引导"></a>初始引导</h3><p><strong>Redux 版本:</strong></p>
-<p>在 Redux 里，我们首先要定义 store，然后通过 <code>Provider</code> 把 store 传入 <code>App</code> 内。同时，我们需要定义 <code>redux-thunk</code> he  <code>redux-promise-middleware</code> 来处理异步函数。<code>redux-devtools-extension</code> 允许我们能够进行时间旅行模式来调试 store。 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">// src/store.js</div><div class="line">import &#123; applyMiddleware, createStore &#125; from &quot;redux&quot;;</div><div class="line">import thunk from &quot;redux-thunk&quot;;</div><div class="line">import promise from &quot;redux-promise-middleware&quot;;</div><div class="line">import &#123; composeWithDevTools &#125; from &apos;redux-devtools-extension&apos;;</div><div class="line">import rootReducer from &quot;./reducers&quot;;</div><div class="line"></div><div class="line">const middleware = composeWithDevTools(applyMiddleware(promise(), thunk));</div><div class="line"></div><div class="line">export default createStore(rootReducer, middleware);</div><div class="line"></div><div class="line">-------------------------------------------------------------------------------</div><div class="line"></div><div class="line">// src/index.js</div><div class="line">....</div><div class="line">ReactDOM.render(</div><div class="line">  &lt;BrowserRouter&gt;</div><div class="line">    &lt;Provider store=&#123;store&#125;&gt;</div><div class="line">      &lt;App /&gt;</div><div class="line">    &lt;/Provider&gt;</div><div class="line">  &lt;/BrowserRouter&gt;,</div><div class="line">  document.getElementById(&apos;root&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
-<p><strong>MobX 版本:</strong></p>
-<p>在 Mobx 里，，我们需要建立多个 store。在这种情况下，我只使用一个 store，这个 store 被我放在一个名叫 <code>allStores</code> 的集合。然后由 <code>Provider</code> 来传递这些 stores 给 <code>App</code>.<br>正如之前提到的，Mobx 不需要外部库来处理异步操作，所以只要很少的代码。但是，我们需要 <code>mobx-remotedev</code> 来连接到 <code>redux-devtools-extension</code> 调试工具。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">// src/stores/index.js</div><div class="line">import remotedev from &apos;mobx-remotedev&apos;;</div><div class="line">import Store from &apos;./store&apos;;</div><div class="line"></div><div class="line">const contactConfig = &#123;</div><div class="line">  name:&apos;Contact Store&apos;,</div><div class="line">  global: true,</div><div class="line">  onlyActions:true,</div><div class="line">  filters: &#123;</div><div class="line">    whitelist: /fetch|update|create|Event|entity|entities|handleErrors/</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">const contactStore = new Store(&apos;api/contacts&apos;);</div><div class="line"></div><div class="line">const allStores = &#123;</div><div class="line">  contactStore: remotedev(contactStore, contactConfig)</div><div class="line">&#125;;</div><div class="line"></div><div class="line">export default allStores;</div><div class="line"></div><div class="line">-------------------------------------------------------------------------------</div><div class="line"></div><div class="line">// src/index.js</div><div class="line">...</div><div class="line">ReactDOM.render(</div><div class="line">  &lt;BrowserRouter&gt;</div><div class="line">    &lt;Provider stores=&#123;allStores&#125;&gt;</div><div class="line">      &lt;App /&gt;</div><div class="line">    &lt;/Provider&gt;</div><div class="line">  &lt;/BrowserRouter&gt;,</div><div class="line">  document.getElementById(&apos;root&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
-<p>在这里二者的代码量大致相等，Mobx 比 Redux 少一些 import 语句。</p>
-<h3 id="属性注入"><a href="#属性注入" class="headerlink" title="属性注入"></a>属性注入</h3><p><strong>Redux 版本:</strong></p>
-<p>在 Redux 中，state 和 actions 通过 react-redux 的 <code>connect()</code> 函数传给 props<br>In Redux, state and actions are passed to props using react-redux’s <code>connect()</code> function.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">// src/pages/contact-form-page.js</div><div class="line">...</div><div class="line">  // accessing props</div><div class="line">  &lt;ContactForm</div><div class="line">    contact=&#123;this.props.contact&#125;</div><div class="line">    loading=&#123;this.props.loading&#125;</div><div class="line">    onSubmit=&#123;this.submit&#125;</div><div class="line">  /&gt;</div><div class="line">...</div><div class="line"></div><div class="line">// function for injecting state into props</div><div class="line">function mapStateToProps(state) &#123;</div><div class="line">  return &#123;</div><div class="line">    contact: state.contactStore.contact,</div><div class="line">    errors: state.contactStore.errors</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// injecting both state and actions into props</div><div class="line">export default connect(mapStateToProps, &#123; newContact,</div><div class="line">  saveContact,</div><div class="line">  fetchContact,</div><div class="line">  updateContact</div><div class="line">&#125;)(ContactFormPage);</div></pre></td></tr></table></figure>
-<p><strong>MobX 版本:</strong></p>
-<p>在 Mobx，我们只需要注入 <code>stores</code> 集合。我们在容器或则组件类的上面使用 <code>@inject</code> 来做属性注入。这让 <code>stores</code> 可以在 <code>props</code> 上可以访问到。同时，反过来，我们可以访问一个特定的 store 并且将它传给子组件。state 和 actions 可以通过 在 props 上的 <code>store</code> 访问到，所以不需要像 Redux 要单独去传入到组件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// src/pages/contact-form-page.js</div><div class="line"></div><div class="line">...</div><div class="line">@inject(&quot;stores&quot;) @observer // injecting store into props</div><div class="line">class ContactFormPage extends Component &#123;</div><div class="line">...</div><div class="line">  // accessing store via props</div><div class="line">  const &#123; contactStore:store &#125; = this.props.stores;</div><div class="line">  return (</div><div class="line">      &lt;ContactForm</div><div class="line">        store=&#123;store&#125;</div><div class="line">        form=&#123;this.form&#125;</div><div class="line">        contact=&#123;store.entity&#125;</div><div class="line">      /&gt;</div><div class="line">  )</div><div class="line">...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>MobX 版本看起来比 Redux 版本更加容易阅读，然而，我们可以使用<a href="https://github.com/evturn/redux-connect-decorator" target="_blank" rel="external">redux-connect-decorators</a> 来简化 Redux 代码。 在这个情况下并没有明显的胜者。</p>
-<h3 id="定义-stores-actions-和-reducers"><a href="#定义-stores-actions-和-reducers" class="headerlink" title="定义 stores, actions, 和 reducers"></a>定义 stores, actions, 和 reducers</h3><p>为了使文章精简，我会只展示一个操作的示例代码。</p>
-<p><strong>Redux 版本:</strong></p>
-<p>在 Redux 里, 我们需要定义 actions 和 reducers.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">// src/actions/contact-actions.js</div><div class="line">...</div><div class="line">export function fetchContacts()&#123;</div><div class="line">  return dispatch =&gt; &#123;</div><div class="line">    dispatch(&#123;</div><div class="line">      type: &apos;FETCH_CONTACTS&apos;,</div><div class="line">      payload: client.get(url)</div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">...</div><div class="line"></div><div class="line">// src/reducers/contact-reducer</div><div class="line">...</div><div class="line">switch (action.type) &#123;</div><div class="line">    case &apos;FETCH_CONTACTS_FULFILLED&apos;: &#123;</div><div class="line">      return &#123;</div><div class="line">        ...state,</div><div class="line">        contacts: action.payload.data.data || action.payload.data,</div><div class="line">        loading: false,</div><div class="line">        errors: &#123;&#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    case &apos;FETCH_CONTACTS_PENDING&apos;: &#123;</div><div class="line">      return &#123;</div><div class="line">        ...state,</div><div class="line">        loading: true,</div><div class="line">        errors: &#123;&#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    case &apos;FETCH_CONTACTS_REJECTED&apos;: &#123;</div><div class="line">      return &#123;</div><div class="line">        ...state,</div><div class="line">        loading: false,</div><div class="line">        errors: &#123; global: action.payload.message &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
-<p><strong>MobX 版本:</strong></p>
-<p>在 MobX 里, action 和 reducer 的逻辑在一个类里被实现. 我们定义一个异步操作，当 <code>response</code> 收到后，调用另外一个 <code>实体已获取</code> 的 action。<br>因为 Mobx 使用的是 OPP 风格，<code>Store</code> 类在这里被定义允许方便地创建多个 store 使用类的构造函数。因此这里展示的是不依赖于其他存储域的基本代码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// src/stores/store.js</div><div class="line">...</div><div class="line">@action</div><div class="line">fetchAll = async() =&gt; &#123;</div><div class="line">  this.loading = true;</div><div class="line">  this.errors = &#123;&#125;;</div><div class="line">  try &#123;</div><div class="line">    const response = await this.service.find(&#123;&#125;)</div><div class="line">    runInAction(&apos;entities fetched&apos;, () =&gt; &#123;</div><div class="line">      this.entities = response.data;</div><div class="line">      this.loading = false;</div><div class="line">    &#125;);</div><div class="line">  &#125; catch(err) &#123;</div><div class="line">      this.handleErrors(err);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
-<p>信或者不信，这两个版本的代码逻辑可以同样的任务。分别是</p>
-<ul>
-<li><p>更新 UI 加载状态</p>
-</li>
-<li><p>获取异步数据</p>
-</li>
-<li><p>捕获异常和更新状态</p>
-</li>
-</ul>
-<p>在 Redux 里,我们用 <strong>33 行代码</strong>。 在 MobX 里, 我们大约用 <strong>14 行代码</strong> 来达到相同的效果! 用 Mobx 的一个主要的好处是你几乎可以在所有的 store 类内稍加改动或者都不用修改就能重用这些基本的代码。这意味着你可以更快的构建的你的应用。</p>
-<h3 id="其他不同"><a href="#其他不同" class="headerlink" title="其他不同"></a>其他不同</h3><p>在 Redux 里创建表单，我们有 <a href="https://www.npmjs.com/package/redux-form" target="_blank" rel="external">redux-form</a>. 在 MobX 里, 我们有 <a href="https://www.npmjs.com/package/mobx-react-form" target="_blank" rel="external">mobx-react-form</a>. 二者都很成熟可以帮组你更加简单的处理逻. 个人来说，我更喜欢 <code>mobx-react-form</code> 因为它允许你通过插件来验证输入。 而 <code>redux-form</code>, 你要么自己编写验证代码或者你可以引入一个验证库来处理验证。</p>
-<p>Mobx 一个微小的缺点是，在观察模式下你不能直接访问一个确定的函数，因为他们已经不是真正的 JavaScript 对象，幸运的是，我们提供了 <code>toJS()</code> 函数，你可以使用它来把观察对象转换成 JavaScript 对象。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>很明显，你可以看到使用 Mobx 的代码十分精简的。使用 OOP 风格和良好的开发实践，你可以快熟的构建应用。主要的缺点在于它很容易编写出质量低，难以维护的代码。</p>
-<p>另一方面，Redux, 更受欢迎， <a href="https://www.sitepoint.com/premium/courses/redux-design-issues-and-testing-2962" target="_blank" rel="external">非常适合构建大型复杂的项目</a>。它是个严格的框架，带有保障措施保障每个开发者写出的代码易于测试和维护。然而，它并不适合一个小的项目。</p>
-<p>尽管 Mobx 的缺点, 如果你遵守良好的开发实践，你任然可以用它来构建大型应用。用爱因斯坦的话来说, “让一切尽可能的简单，而不是仅仅是简单”。</p>
-<p>我希望我已经提供了足够的信息让你可以明确的知道是否应该迁移到 Mobx 或者继续使用 Redux。最终的决定取决于你工作的项目的类型和你能够得到的资源。</p>
-<p>如果你需要任何对 Mobx 示例代码的澄清，随时在下面的评论里提问，不知道我有没有给你再下一个 React 项目中尝试 Mobx 的信心。</p>
-<p><em>这篇文章由同行 <a href="https://github.com/annoyingmouse" target="_blank" rel="external">Dominic Myers</a> 和 <a href="https://www.sitepoint.com/author/vildansoftic/" target="_blank" rel="external">Vildan Softic</a> 二人做评审。感谢所有在 SitePoint 上评审的同行，使 SitePoint 能做出最好的内容。</em></p>
-
+          <div class="read-more">
+            <a href="/2017/07/02/[translation]-Redux-vs-MobX-Which-Is-Best-for-Your-Project/" class="read-more-link">Read more..</a>
+          </div>
         
       
     </div>
@@ -321,18 +238,15 @@
       
         
         
+          
+        
 
         
           <p><img src="http://ww1.sinaimg.cn/large/80e8a39aly1fgqvj4uhkcj20vo0i2tba.jpg" alt=""></p>
 <p>Flex 布局主要思想是让容器有能力让其子元素能够改变其宽度、高度(甚至顺序)，以最佳方式(伸缩)填充可用空间，以防止它们溢出容器。</p>
-<p>几个名词：</p>
-<p><strong>主轴</strong>：伸缩的子元素沿着主轴的方向排列布局，主轴的方向默认情况下是横着的，也有可能是竖着的，这个取决于 <code>flex-direction</code> 这个属性的值。主轴上的子元素的布局由 <code>justify-content</code> 这个属性来设置。<br><strong>侧轴</strong>：与主轴相正交，侧轴上的子元素的布局由 <code>align-items</code> 这个属性来设置<code>flex-wrap</code> 用来定义伸缩项目夫元素 container 单行显示还是多行显示</p>
-<p>对于 contanier, 容器相关的几个属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// container 属性</div><div class="line">.container &#123;</div><div class="line">  display : flex | inline-flex</div><div class="line">  flex-direction : row(默认) | column | row-reverse | column-reverse</div><div class="line">  flex-wrap : nowrap(默认) | wrap | wrap-reverse  </div><div class="line">  flex-flow : &apos;row nowrap&apos; | &apos;column nowrap&apos; | ... </div><div class="line">  // flex-derection + flex-wrap = flex-flow 二者的组合</div><div class="line">  align-content : flex-start | flex-end | center | space-between | space-around | stretch  // align-content 仅作用于多行的，控制每行伸缩项目在伸缩容器内的排列</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>对于 items，伸缩项目子元素的属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// items 属性</div><div class="line">.items &#123;</div><div class="line">  justify-content : flex-start(默认) | flex-end | center | space-between | space-around</div><div class="line">  align-items : flex-start | flex-end | center | baseline | stretch(默认)</div><div class="line">  order : number // 显示顺序</div><div class="line">  flex-grow : number(默认为 0)   // 定义伸缩项目的扩展能力</div><div class="line">  flex-shirnk : number(默认为 1) // 定义伸缩项目的收缩能力</div><div class="line">  flex-basis : length | auto(默认) // 伸缩基准值</div><div class="line">  flex : 0 1 auto</div><div class="line">  // flex 为 flex-grow + flex-shink + flex-basis</div><div class="line">  algin-self : auto | flex-start | flex-end | center | baseline | stretch  // 用来在单独的伸缩项目上覆写默认的对齐方式</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>记住基本使用即可，css tricks上这篇流传极广的文章可做很好的资料：<a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" rel="external">A Complete Guide to Flexbox</a></p>
-
+          <div class="read-more">
+            <a href="/2017/06/10/flex-layout-note/" class="read-more-link">Read more..</a>
+          </div>
         
       
     </div>
@@ -367,13 +281,15 @@
       
         
         
+          
+        
 
         
           <p>记几篇有关品味的文章</p>
 <p><a href="!http://apple4us.com/2009/07/taste-for-makers/">taste for maker</a><br><a href="!http://www.cnblogs.com/cathsfz/archive/2010/02/01/1660909.html">程序员的品味</a><br><a href="!http://www.jtianling.com/how-to-be-a-good-programmer.html">漫谈好程序员的标准</a></p>
-<p>我觉得很重要的一点是：<strong>思考</strong>，写代码的时候多花时间思考，看到代码堆积（出现bad smell）的时候就应该想到重构，代码终究是由人来维护的，写一堆烂代码比不写还要糟糕。产品设计也一样适用，不好的设计还不如没有设计，我们应当广泛浏览，注重思考，多实践，为己所用。</p>
-<p>taste !</p>
-
+          <div class="read-more">
+            <a href="/2017/05/31/good-taste-and-bad-smell-in-coding-design-and-more/" class="read-more-link">Read more..</a>
+          </div>
         
       
     </div>
@@ -408,22 +324,14 @@
       
         
         
+          
+        
 
         
           <p>最近在好几个地方看到关于创业公司的福利的探讨<a href="https://www.zhihu.com/question/33713050" target="_blank" rel="external">初创公司，应该设置哪些员工福利比较好呢？</a>和公司福利和给程序猿的标准配备等微博观点。</p>
-<p>我想起了我前公司，前前公司和现在公司的对比，说几句话。</p>
-<p>先说后面一个吧，首先，我是一枚程序猿。私以为，公司给程序猿的硬件标配应当要</p>
-<ol>
-<li>15寸，16G内存，512G SSD的rmbp. （这个没什么可说的，相比于13寸，或者8G内存，15寸，16G内存显然优势很大，而贵不过5k块钱，值得)</li>
-<li>加配一个27寸U系列dell外接显示器。（什么，还配p系列，what？）</li>
-<li>键盘可配可不配（看个人需求）</li>
-<li>工作空间应该至少1平方米吧（按至少1.2 * 0.8计算，真的很小了，显示器+笔记本+（外接键盘）+（另一个显示器）+书，纸小收纳+（小盆栽）+一定的空白…）</li>
-<li>椅子至少也要是人体工程学椅子（不说要是herman miller，但是一个好一点到椅子，对程序猿这种长期坐在电脑前写代码的群体来说是很有必要）</li>
-</ol>
-<p>想象一下，一天有多少时间一个程序员将要和这些硬件打交道，配好一点难道不应该吗？一把好的椅子，关系的是程序员的健康，不应该随便。空间我说至少1平方米，我的观点是大一点的空间会都对灵感的产生，效率的提升有不少益处。急促于一个狭小的空间我个人觉得是很受拘谨。</p>
-<p>再说福利吧。我觉得对于程序员来说，福利更好是实实在在的。不是说实实在在的物品或者金钱，更好是能够多邀请外面的大牛来分享学习，或者组织内部分享交流，学习跨职责岗位部分的同事的技能和思维方式，提升自我是最好的福利。还有就是，员工老板氛围好，无缝交流开玩笑，多好。</p>
-<p>总之，boss想要员工齐心工作，还是多走心。而且这些硬件设备，不是易耗品，除了电脑用三年，其他可以用好几年的。</p>
-
+          <div class="read-more">
+            <a href="/2017/05/22/about-well-being-of-a-startup/" class="read-more-link">Read more..</a>
+          </div>
         
       
     </div>
@@ -458,13 +366,14 @@
       
         
         
+          
+        
 
         
           <p>在react里面，每调用一次<code>setState</code>方法都会触发(一般情况对于state变化shouldComponentUpdate方法里都是return true)<code>Virtual DOM</code>的Diff操作，尽管可能并未更新原生DOM，Diff操作也会带来性能的开销。</p>
-<p>而对于<code>Mutable</code>的对象的低效率操作主要体现在复制和比较上，而<code>Immutable</code>对象就是解决了这两大低效的痛点。<br>普通的<code>Mutable</code>对象的深拷贝操作会将一整份数据都复制一遍，而<code>Immutable</code>对象在修改数据时并不会复制一整份数据，而是将变化的节点与未变化的节点的父子关系转移到一个新节点上，类似于链表的结构。从 “复制” 的角度来看，做到了最小化的复制，未变化的部分都是共享的，<code>Mutable</code>在复制的时候是 “全量”，而<code>Immutable</code>复制的是 “增量”，对于内存空间的使用率的比较高低立判。<br>并且基于每次修改一个<code>Immutable</code>对象都会创建一个新的<code>Immutable</code>对象的这种特性可以将数据的修改状态保存成一组快照，这也是挺方便的。</p>
-<p>部分出自雨夜带刀blog文章<a href="http://stylechen.com/react-and-immutable.html" target="_blank" rel="external">从 React 的组件更新谈 Immutable 的应用</a>, 有改动。</p>
-<p>对于immutable，如果用多一点，你会发现一个库seamless-immutable，使immutable使用更加无缝</p>
-
+          <div class="read-more">
+            <a href="/2017/05/07/Immutable-js-little-note/" class="read-more-link">Read more..</a>
+          </div>
         
       
     </div>
@@ -499,17 +408,14 @@
       
         
         
+          
+        
 
         
           <p>一直以来，我在前几家公司的git协作方式都是使用git分支来协作的：以<code>master</code>分支作为线上部署代码来源，通过<code>master</code>上打tag，以打的tag的版本号来作为发布版本。<br>开发的都是以<code>develop</code>作为开发分支，类似<code>gitflow</code>的协作模型，各个开发从<code>develop</code>分支checkout出新分支，比如 <code>feature/someFeature</code>，或者<code>bugfix/bugMum</code>等，当然不一定完全遵守<code>gitflow</code>模型，总体思路是一致的。合并的时候一般对分支作权限，比如一般开发没有往<code>develop</code>的push或者merge权限，需要在本地自己的开发分支先merge <code>develop</code>分支代码，然后发起一个pull request（gitlab为merge request）这样项目负责人accept pr的时候就不会发生冲突。</p>
-<p>最近在新公司采取的是另外一种git协作模式，采用的fork协作。就是对源代码fork一份代码出来，然后本地自己开发，同时需要sync源库的代码。挺奇怪的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add upstream git@github:yourgitrepo.git</div></pre></td></tr></table></figure>
-<p>然后sync远程的源库代码需要</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git fetch upstream</div></pre></td></tr></table></figure>
-<p>这样本地就会同步一份远程的源库代码在本地的.git/refs/remote/upstream这里，<br>然后merge远程的源库develop分支就需要</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">get merge upstream/develop</div></pre></td></tr></table></figure>
-<p>两种协作模式都有很多人用，但是我觉得这两种协作方式应该是有不同到协作场景的。在团队协作上，我推荐前一种方式，应为我觉得git的精髓就是它的分支特性，git的分支协作可以生成一个结构完整的树状git commit的log记录。fork更适合开源项目的协作方式，如果一个在团队内进行协作使用fork模式，如果有两个或者多个人开发同一个feature，这样是没法协作的，应为他们在不同到fork上开发，代码不能随时同步。</p>
-
+          <div class="read-more">
+            <a href="/2017/05/06/git-cooperate-note/" class="read-more-link">Read more..</a>
+          </div>
         
       
     </div>
@@ -544,17 +450,14 @@
       
         
         
+          
+        
 
         
           <p>记得刚工作的时候有记录过这个问题，但是后来也不知道弄那里去了，这次再次配置，记录一下</p>
-<p>其实就是添加了一个ssh的config文件来管理不同的host使用不同的rsa文件。<br>默认情况下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// generate email_1 ssh key</div><div class="line">// ssh-keygen生成的id_rsa合is_rsa.pub文件</div><div class="line">ssh ssh-keygen -t ras -C &quot;email_1@gmail.com&quot;</div><div class="line"></div><div class="line">// generate email_2 ssh key</div><div class="line">ssh ssh-keygen -t ras -C &quot;email_2@gmail.com&quot;</div><div class="line">// 应为已经有一个加密id_rsa和id_rsa.pub文件了，这里这时候会提示说&quot;enter file in witch to safe the key(User/name/.ssh/id_pub)&quot;,   </div><div class="line">// 如果接下来全部按enter, 则新生成的rsa文件会覆盖同名的属于email_1的rsa文件，这时候应该输入一个新的文件名比如 id_pub_gitlab(或者id_pub_bitbucket/...)</div></pre></td></tr></table></figure>
-<p>然后就可以把对应的id_pub_x?x.pub粘贴到你的托管服务的ssh key里。</p>
-<p>新建完id_rsa文件后，往不同到codebase里pull或者push，怎么识别对应的id_rsa呢，这时候就需要一个config文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">touch config</div><div class="line">// config content</div><div class="line"></div><div class="line"># github</div><div class="line">Host github</div><div class="line">  HostName github.com</div><div class="line">  IdentityFile ~/.ssh/id_rsa</div><div class="line">  User git</div><div class="line"></div><div class="line"># gitlab</div><div class="line">Host gitlab</div><div class="line">  # customize hostname: code.company.com</div><div class="line">  HostName gitlab.com</div><div class="line">  IdentityFile ~/.ssh/id_pub_gitlab </div><div class="line">  User git</div><div class="line"></div><div class="line"># bitbucket</div><div class="line">Host bitbucket</div><div class="line">  HostName bitbucket.com</div><div class="line">  IdentityFile ~/.ssh/id_pub_bitbucket</div><div class="line">  User git</div></pre></td></tr></table></figure>
-<p>这样配置后，使用ssh -T命令来查看是否能正确连接上服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh -T git@github.om</div><div class="line">ssh -T git@gitlab.com</div></pre></td></tr></table></figure>
-
+          <div class="read-more">
+            <a href="/2017/05/02/multi-ssh-key-with-github-gitlab-bitbucket/" class="read-more-link">Read more..</a>
+          </div>
         
       
     </div>

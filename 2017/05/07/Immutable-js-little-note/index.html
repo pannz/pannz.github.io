@@ -34,17 +34,17 @@
 <link rel="canonical" href="http://pannz.github.io/2017/05/07/Immutable-js-little-note/"/>
 
 
-<meta name="description" content="在react里面，每调用一次setState方法都会触发(一般情况对于state变化shouldComponentUpdate方法里都是return true)Virtual DOM的Diff操作，尽管可能并未更新原生DOM，Diff操作也会带来性能的开销。 而对于Mutable的对象的低效率操作主要体现在复制和比较上，而Immutable对象就是解决了这两大低效的痛点。普通的Mutable对象的">
+<meta name="description" content="在react里面，每调用一次setState方法都会触发(一般情况对于state变化shouldComponentUpdate方法里都是return true)Virtual DOM的Diff操作，尽管可能并未更新原生DOM，Diff操作也会带来性能的开销。">
 <meta name="keywords" content="immutable">
 <meta property="og:type" content="article">
 <meta property="og:title" content="little note for Immutable.js">
 <meta property="og:url" content="http://pannz.github.io/2017/05/07/Immutable-js-little-note/index.html">
 <meta property="og:site_name" content="烹牛宰羊且为乐">
-<meta property="og:description" content="在react里面，每调用一次setState方法都会触发(一般情况对于state变化shouldComponentUpdate方法里都是return true)Virtual DOM的Diff操作，尽管可能并未更新原生DOM，Diff操作也会带来性能的开销。 而对于Mutable的对象的低效率操作主要体现在复制和比较上，而Immutable对象就是解决了这两大低效的痛点。普通的Mutable对象的">
-<meta property="og:updated_time" content="2017-05-07T13:29:10.000Z">
+<meta property="og:description" content="在react里面，每调用一次setState方法都会触发(一般情况对于state变化shouldComponentUpdate方法里都是return true)Virtual DOM的Diff操作，尽管可能并未更新原生DOM，Diff操作也会带来性能的开销。">
+<meta property="og:updated_time" content="2017-07-02T09:06:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="little note for Immutable.js">
-<meta name="twitter:description" content="在react里面，每调用一次setState方法都会触发(一般情况对于state变化shouldComponentUpdate方法里都是return true)Virtual DOM的Diff操作，尽管可能并未更新原生DOM，Diff操作也会带来性能的开销。 而对于Mutable的对象的低效率操作主要体现在复制和比较上，而Immutable对象就是解决了这两大低效的痛点。普通的Mutable对象的">
+<meta name="twitter:description" content="在react里面，每调用一次setState方法都会触发(一般情况对于state变化shouldComponentUpdate方法里都是return true)Virtual DOM的Diff操作，尽管可能并未更新原生DOM，Diff操作也会带来性能的开销。">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -197,6 +197,7 @@
     <div class="post-content">
       
         <p>在react里面，每调用一次<code>setState</code>方法都会触发(一般情况对于state变化shouldComponentUpdate方法里都是return true)<code>Virtual DOM</code>的Diff操作，尽管可能并未更新原生DOM，Diff操作也会带来性能的开销。</p>
+<a id="more"></a>
 <p>而对于<code>Mutable</code>的对象的低效率操作主要体现在复制和比较上，而<code>Immutable</code>对象就是解决了这两大低效的痛点。<br>普通的<code>Mutable</code>对象的深拷贝操作会将一整份数据都复制一遍，而<code>Immutable</code>对象在修改数据时并不会复制一整份数据，而是将变化的节点与未变化的节点的父子关系转移到一个新节点上，类似于链表的结构。从 “复制” 的角度来看，做到了最小化的复制，未变化的部分都是共享的，<code>Mutable</code>在复制的时候是 “全量”，而<code>Immutable</code>复制的是 “增量”，对于内存空间的使用率的比较高低立判。<br>并且基于每次修改一个<code>Immutable</code>对象都会创建一个新的<code>Immutable</code>对象的这种特性可以将数据的修改状态保存成一组快照，这也是挺方便的。</p>
 <p>部分出自雨夜带刀blog文章<a href="http://stylechen.com/react-and-immutable.html" target="_blank" rel="external">从 React 的组件更新谈 Immutable 的应用</a>, 有改动。</p>
 <p>对于immutable，如果用多一点，你会发现一个库seamless-immutable，使immutable使用更加无缝</p>
