@@ -12,12 +12,10 @@
 
 
 
-  <meta name="description" content="little note for Immutable.js"/>
+  <meta name="description" content="创业公司的福利与程序猿标配之我见"/>
 
 
 
-
-  <meta name="keywords" content="immutable," />
 
 
 
@@ -31,20 +29,19 @@
 
 
 
-<link rel="canonical" href="http://pannz.github.io/2017/05/07/Immutable-js-little-note/"/>
+<link rel="canonical" href="http://pannz.github.io/2017/05/22/about-well-being-of-a-startup/"/>
 
 
-<meta name="description" content="在react里面，每调用一次setState方法都会触发(一般情况对于state变化shouldComponentUpdate方法里都是return true)Virtual DOM的Diff操作，尽管可能并未更新原生DOM，Diff操作也会带来性能的开销。 而对于Mutable的对象的低效率操作主要体现在复制和比较上，而Immutable对象就是解决了这两大低效的痛点。普通的Mutable对象的">
-<meta name="keywords" content="immutable">
+<meta name="description" content="最近在好几个地方看到关于创业公司的福利的探讨初创公司，应该设置哪些员工福利比较好呢？和公司福利和给程序猿的标准配备等微博观点。 我想起了我前公司，前前公司和现在公司的对比，说几句话。 先说后面一个吧，首先，我是一枚程序猿。私以为，公司给程序猿的硬件标配应当要  15寸，16G内存，512G SSD的rmbp. （这个没什么可说的，相比于13寸，或者8G内存，15寸，16G内存显然优势很大，而贵不过">
 <meta property="og:type" content="article">
-<meta property="og:title" content="little note for Immutable.js">
-<meta property="og:url" content="http://pannz.github.io/2017/05/07/Immutable-js-little-note/index.html">
+<meta property="og:title" content="创业公司的福利与程序猿标配之我见">
+<meta property="og:url" content="http://pannz.github.io/2017/05/22/about-well-being-of-a-startup/index.html">
 <meta property="og:site_name" content="烹牛宰羊且为乐">
-<meta property="og:description" content="在react里面，每调用一次setState方法都会触发(一般情况对于state变化shouldComponentUpdate方法里都是return true)Virtual DOM的Diff操作，尽管可能并未更新原生DOM，Diff操作也会带来性能的开销。 而对于Mutable的对象的低效率操作主要体现在复制和比较上，而Immutable对象就是解决了这两大低效的痛点。普通的Mutable对象的">
-<meta property="og:updated_time" content="2017-05-07T13:29:10.000Z">
+<meta property="og:description" content="最近在好几个地方看到关于创业公司的福利的探讨初创公司，应该设置哪些员工福利比较好呢？和公司福利和给程序猿的标准配备等微博观点。 我想起了我前公司，前前公司和现在公司的对比，说几句话。 先说后面一个吧，首先，我是一枚程序猿。私以为，公司给程序猿的硬件标配应当要  15寸，16G内存，512G SSD的rmbp. （这个没什么可说的，相比于13寸，或者8G内存，15寸，16G内存显然优势很大，而贵不过">
+<meta property="og:updated_time" content="2017-07-02T09:00:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="little note for Immutable.js">
-<meta name="twitter:description" content="在react里面，每调用一次setState方法都会触发(一般情况对于state变化shouldComponentUpdate方法里都是return true)Virtual DOM的Diff操作，尽管可能并未更新原生DOM，Diff操作也会带来性能的开销。 而对于Mutable的对象的低效率操作主要体现在复制和比较上，而Immutable对象就是解决了这两大低效的痛点。普通的Mutable对象的">
+<meta name="twitter:title" content="创业公司的福利与程序猿标配之我见">
+<meta name="twitter:description" content="最近在好几个地方看到关于创业公司的福利的探讨初创公司，应该设置哪些员工福利比较好呢？和公司福利和给程序猿的标准配备等微博观点。 我想起了我前公司，前前公司和现在公司的对比，说几句话。 先说后面一个吧，首先，我是一枚程序猿。私以为，公司给程序猿的硬件标配应当要  15寸，16G内存，512G SSD的rmbp. （这个没什么可说的，相比于13寸，或者8G内存，15寸，16G内存显然优势很大，而贵不过">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -73,7 +70,7 @@
 
 
 
-    <title> little note for Immutable.js · 烹牛宰羊且为乐 </title>
+    <title> 创业公司的福利与程序猿标配之我见 · 烹牛宰羊且为乐 </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -180,13 +177,13 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          little note for Immutable.js
+          创业公司的福利与程序猿标配之我见
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2017年5月7日
+          2017年5月22日
         </span>
       </div>
     </header>
@@ -196,10 +193,19 @@
 
     <div class="post-content">
       
-        <p>在react里面，每调用一次<code>setState</code>方法都会触发(一般情况对于state变化shouldComponentUpdate方法里都是return true)<code>Virtual DOM</code>的Diff操作，尽管可能并未更新原生DOM，Diff操作也会带来性能的开销。</p>
-<p>而对于<code>Mutable</code>的对象的低效率操作主要体现在复制和比较上，而<code>Immutable</code>对象就是解决了这两大低效的痛点。<br>普通的<code>Mutable</code>对象的深拷贝操作会将一整份数据都复制一遍，而<code>Immutable</code>对象在修改数据时并不会复制一整份数据，而是将变化的节点与未变化的节点的父子关系转移到一个新节点上，类似于链表的结构。从 “复制” 的角度来看，做到了最小化的复制，未变化的部分都是共享的，<code>Mutable</code>在复制的时候是 “全量”，而<code>Immutable</code>复制的是 “增量”，对于内存空间的使用率的比较高低立判。<br>并且基于每次修改一个<code>Immutable</code>对象都会创建一个新的<code>Immutable</code>对象的这种特性可以将数据的修改状态保存成一组快照，这也是挺方便的。</p>
-<p>部分出自雨夜带刀blog文章<a href="http://stylechen.com/react-and-immutable.html" target="_blank" rel="external">从 React 的组件更新谈 Immutable 的应用</a>, 有改动。</p>
-<p>对于immutable，如果用多一点，你会发现一个库seamless-immutable，使immutable使用更加无缝</p>
+        <p>最近在好几个地方看到关于创业公司的福利的探讨<a href="https://www.zhihu.com/question/33713050" target="_blank" rel="external">初创公司，应该设置哪些员工福利比较好呢？</a>和公司福利和给程序猿的标准配备等微博观点。</p>
+<p>我想起了我前公司，前前公司和现在公司的对比，说几句话。</p>
+<p>先说后面一个吧，首先，我是一枚程序猿。私以为，公司给程序猿的硬件标配应当要</p>
+<ol>
+<li>15寸，16G内存，512G SSD的rmbp. （这个没什么可说的，相比于13寸，或者8G内存，15寸，16G内存显然优势很大，而贵不过5k块钱，值得)</li>
+<li>加配一个27寸U系列dell外接显示器。（什么，还配p系列，what？）</li>
+<li>键盘可配可不配（看个人需求）</li>
+<li>工作空间应该至少1平方米吧（按至少1.2 * 0.8计算，真的很小了，显示器+笔记本+（外接键盘）+（另一个显示器）+书，纸小收纳+（小盆栽）+一定的空白…）</li>
+<li>椅子至少也要是人体工程学椅子（不说要是herman miller，但是一个好一点到椅子，对程序猿这种长期坐在电脑前写代码的群体来说是很有必要）</li>
+</ol>
+<p>想象一下，一天有多少时间一个程序员将要和这些硬件打交道，配好一点难道不应该吗？一把好的椅子，关系的是程序员的健康，不应该随便。空间我说至少1平方米，我的观点是大一点的空间会都对灵感的产生，效率的提升有不少益处。急促于一个狭小的空间我个人觉得是很受拘谨。</p>
+<p>再说福利吧。我觉得对于程序员来说，福利更好是实实在在的。不是说实实在在的物品或者金钱，更好是能够多邀请外面的大牛来分享学习，或者组织内部分享交流，学习跨职责岗位部分的同事的技能和思维方式，提升自我是最好的福利。还有就是，员工老板氛围好，无缝交流开玩笑，多好。</p>
+<p>总之，boss想要员工齐心工作，还是多走心。而且这些硬件设备，不是易耗品，除了电脑用三年，其他可以用好几年的。</p>
 
       
     </div>
@@ -219,7 +225,7 @@
     </p>
     <p class="copyright-item">
       <span>链接: </span>
-      <a href="http://pannz.github.io/2017/05/07/Immutable-js-little-note/">http://pannz.github.io/2017/05/07/Immutable-js-little-note/</a>
+      <a href="http://pannz.github.io/2017/05/22/about-well-being-of-a-startup/">http://pannz.github.io/2017/05/22/about-well-being-of-a-startup/</a>
     </p>
 
     <p class="copyright-item lincese">
@@ -255,25 +261,19 @@
     
       <footer class="post-footer">
         
-          <div class="post-tags">
-            
-              <a href="/tags/immutable/">immutable</a>
-            
-          </div>
-        
         
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2017/05/22/about-well-being-of-a-startup/">
+      <a class="prev" href="/2017/05/31/good-taste-and-bad-smell-in-coding-design-and-more/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">创业公司的福利与程序猿标配之我见</span>
+        <span class="prev-text nav-default">代码的好品味与坏味道</span>
         <span class="prev-text nav-mobile">Prev</span>
       </a>
     
     
-      <a class="next" href="/2017/05/06/git-cooperate-note/">
-        <span class="next-text nav-default">git协作小记</span>
+      <a class="next" href="/2017/05/07/Immutable-js-little-note/">
+        <span class="next-text nav-default">little note for Immutable.js</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>

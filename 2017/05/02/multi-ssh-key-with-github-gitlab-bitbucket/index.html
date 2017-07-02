@@ -12,12 +12,12 @@
 
 
 
-  <meta name="description" content="little note for Immutable.js"/>
+  <meta name="description" content="多ssh key管理github/gitlab/bitbucket记录"/>
 
 
 
 
-  <meta name="keywords" content="immutable," />
+  <meta name="keywords" content="ssh," />
 
 
 
@@ -31,20 +31,20 @@
 
 
 
-<link rel="canonical" href="http://pannz.github.io/2017/05/07/Immutable-js-little-note/"/>
+<link rel="canonical" href="http://pannz.github.io/2017/05/02/multi-ssh-key-with-github-gitlab-bitbucket/"/>
 
 
-<meta name="description" content="在react里面，每调用一次setState方法都会触发(一般情况对于state变化shouldComponentUpdate方法里都是return true)Virtual DOM的Diff操作，尽管可能并未更新原生DOM，Diff操作也会带来性能的开销。 而对于Mutable的对象的低效率操作主要体现在复制和比较上，而Immutable对象就是解决了这两大低效的痛点。普通的Mutable对象的">
-<meta name="keywords" content="immutable">
+<meta name="description" content="记得刚工作的时候有记录过这个问题，但是后来也不知道弄那里去了，这次再次配置，记录一下 其实就是添加了一个ssh的config文件来管理不同的host使用不同的rsa文件。默认情况下 12345678// generate email_1 ssh key// ssh-keygen生成的id_rsa合is_rsa.pub文件ssh ssh-keygen -t ras -C &amp;quot;email_1@">
+<meta name="keywords" content="ssh">
 <meta property="og:type" content="article">
-<meta property="og:title" content="little note for Immutable.js">
-<meta property="og:url" content="http://pannz.github.io/2017/05/07/Immutable-js-little-note/index.html">
+<meta property="og:title" content="多ssh key管理github&#x2F;gitlab&#x2F;bitbucket记录">
+<meta property="og:url" content="http://pannz.github.io/2017/05/02/multi-ssh-key-with-github-gitlab-bitbucket/index.html">
 <meta property="og:site_name" content="烹牛宰羊且为乐">
-<meta property="og:description" content="在react里面，每调用一次setState方法都会触发(一般情况对于state变化shouldComponentUpdate方法里都是return true)Virtual DOM的Diff操作，尽管可能并未更新原生DOM，Diff操作也会带来性能的开销。 而对于Mutable的对象的低效率操作主要体现在复制和比较上，而Immutable对象就是解决了这两大低效的痛点。普通的Mutable对象的">
-<meta property="og:updated_time" content="2017-05-07T13:29:10.000Z">
+<meta property="og:description" content="记得刚工作的时候有记录过这个问题，但是后来也不知道弄那里去了，这次再次配置，记录一下 其实就是添加了一个ssh的config文件来管理不同的host使用不同的rsa文件。默认情况下 12345678// generate email_1 ssh key// ssh-keygen生成的id_rsa合is_rsa.pub文件ssh ssh-keygen -t ras -C &amp;quot;email_1@">
+<meta property="og:updated_time" content="2017-07-02T08:59:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="little note for Immutable.js">
-<meta name="twitter:description" content="在react里面，每调用一次setState方法都会触发(一般情况对于state变化shouldComponentUpdate方法里都是return true)Virtual DOM的Diff操作，尽管可能并未更新原生DOM，Diff操作也会带来性能的开销。 而对于Mutable的对象的低效率操作主要体现在复制和比较上，而Immutable对象就是解决了这两大低效的痛点。普通的Mutable对象的">
+<meta name="twitter:title" content="多ssh key管理github&#x2F;gitlab&#x2F;bitbucket记录">
+<meta name="twitter:description" content="记得刚工作的时候有记录过这个问题，但是后来也不知道弄那里去了，这次再次配置，记录一下 其实就是添加了一个ssh的config文件来管理不同的host使用不同的rsa文件。默认情况下 12345678// generate email_1 ssh key// ssh-keygen生成的id_rsa合is_rsa.pub文件ssh ssh-keygen -t ras -C &amp;quot;email_1@">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -73,7 +73,7 @@
 
 
 
-    <title> little note for Immutable.js · 烹牛宰羊且为乐 </title>
+    <title> 多ssh key管理github/gitlab/bitbucket记录 · 烹牛宰羊且为乐 </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -180,13 +180,13 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          little note for Immutable.js
+          多ssh key管理github/gitlab/bitbucket记录
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2017年5月7日
+          2017年5月2日
         </span>
       </div>
     </header>
@@ -196,10 +196,14 @@
 
     <div class="post-content">
       
-        <p>在react里面，每调用一次<code>setState</code>方法都会触发(一般情况对于state变化shouldComponentUpdate方法里都是return true)<code>Virtual DOM</code>的Diff操作，尽管可能并未更新原生DOM，Diff操作也会带来性能的开销。</p>
-<p>而对于<code>Mutable</code>的对象的低效率操作主要体现在复制和比较上，而<code>Immutable</code>对象就是解决了这两大低效的痛点。<br>普通的<code>Mutable</code>对象的深拷贝操作会将一整份数据都复制一遍，而<code>Immutable</code>对象在修改数据时并不会复制一整份数据，而是将变化的节点与未变化的节点的父子关系转移到一个新节点上，类似于链表的结构。从 “复制” 的角度来看，做到了最小化的复制，未变化的部分都是共享的，<code>Mutable</code>在复制的时候是 “全量”，而<code>Immutable</code>复制的是 “增量”，对于内存空间的使用率的比较高低立判。<br>并且基于每次修改一个<code>Immutable</code>对象都会创建一个新的<code>Immutable</code>对象的这种特性可以将数据的修改状态保存成一组快照，这也是挺方便的。</p>
-<p>部分出自雨夜带刀blog文章<a href="http://stylechen.com/react-and-immutable.html" target="_blank" rel="external">从 React 的组件更新谈 Immutable 的应用</a>, 有改动。</p>
-<p>对于immutable，如果用多一点，你会发现一个库seamless-immutable，使immutable使用更加无缝</p>
+        <p>记得刚工作的时候有记录过这个问题，但是后来也不知道弄那里去了，这次再次配置，记录一下</p>
+<p>其实就是添加了一个ssh的config文件来管理不同的host使用不同的rsa文件。<br>默认情况下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// generate email_1 ssh key</div><div class="line">// ssh-keygen生成的id_rsa合is_rsa.pub文件</div><div class="line">ssh ssh-keygen -t ras -C &quot;email_1@gmail.com&quot;</div><div class="line"></div><div class="line">// generate email_2 ssh key</div><div class="line">ssh ssh-keygen -t ras -C &quot;email_2@gmail.com&quot;</div><div class="line">// 应为已经有一个加密id_rsa和id_rsa.pub文件了，这里这时候会提示说&quot;enter file in witch to safe the key(User/name/.ssh/id_pub)&quot;,   </div><div class="line">// 如果接下来全部按enter, 则新生成的rsa文件会覆盖同名的属于email_1的rsa文件，这时候应该输入一个新的文件名比如 id_pub_gitlab(或者id_pub_bitbucket/...)</div></pre></td></tr></table></figure>
+<p>然后就可以把对应的id_pub_x?x.pub粘贴到你的托管服务的ssh key里。</p>
+<p>新建完id_rsa文件后，往不同到codebase里pull或者push，怎么识别对应的id_rsa呢，这时候就需要一个config文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">touch config</div><div class="line">// config content</div><div class="line"></div><div class="line"># github</div><div class="line">Host github</div><div class="line">  HostName github.com</div><div class="line">  IdentityFile ~/.ssh/id_rsa</div><div class="line">  User git</div><div class="line"></div><div class="line"># gitlab</div><div class="line">Host gitlab</div><div class="line">  # customize hostname: code.company.com</div><div class="line">  HostName gitlab.com</div><div class="line">  IdentityFile ~/.ssh/id_pub_gitlab </div><div class="line">  User git</div><div class="line"></div><div class="line"># bitbucket</div><div class="line">Host bitbucket</div><div class="line">  HostName bitbucket.com</div><div class="line">  IdentityFile ~/.ssh/id_pub_bitbucket</div><div class="line">  User git</div></pre></td></tr></table></figure>
+<p>这样配置后，使用ssh -T命令来查看是否能正确连接上服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh -T git@github.om</div><div class="line">ssh -T git@gitlab.com</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -219,7 +223,7 @@
     </p>
     <p class="copyright-item">
       <span>链接: </span>
-      <a href="http://pannz.github.io/2017/05/07/Immutable-js-little-note/">http://pannz.github.io/2017/05/07/Immutable-js-little-note/</a>
+      <a href="http://pannz.github.io/2017/05/02/multi-ssh-key-with-github-gitlab-bitbucket/">http://pannz.github.io/2017/05/02/multi-ssh-key-with-github-gitlab-bitbucket/</a>
     </p>
 
     <p class="copyright-item lincese">
@@ -257,7 +261,7 @@
         
           <div class="post-tags">
             
-              <a href="/tags/immutable/">immutable</a>
+              <a href="/tags/ssh/">ssh</a>
             
           </div>
         
@@ -265,18 +269,12 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2017/05/22/about-well-being-of-a-startup/">
+      <a class="prev" href="/2017/05/06/git-cooperate-note/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">创业公司的福利与程序猿标配之我见</span>
+        <span class="prev-text nav-default">git协作小记</span>
         <span class="prev-text nav-mobile">Prev</span>
       </a>
     
-    
-      <a class="next" href="/2017/05/06/git-cooperate-note/">
-        <span class="next-text nav-default">git协作小记</span>
-        <span class="prev-text nav-mobile">Next</span>
-        <i class="iconfont icon-right"></i>
-      </a>
     
   </nav>
 

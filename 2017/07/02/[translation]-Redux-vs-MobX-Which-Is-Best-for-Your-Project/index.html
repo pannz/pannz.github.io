@@ -12,7 +12,7 @@
 
 
 
-  <meta name="description" content="胜天半子"/>
+  <meta name="description" content="[翻译] Redux vs MobX: Which Is Best for Your Project?"/>
 
 
 
@@ -29,18 +29,21 @@
 
 
 
-<link rel="canonical" href="http://pannz.github.io/"/>
+<link rel="canonical" href="http://pannz.github.io/2017/07/02/[translation]-Redux-vs-MobX-Which-Is-Best-for-Your-Project/"/>
 
 
-<meta name="description" content="胜天半子">
-<meta property="og:type" content="website">
-<meta property="og:title" content="烹牛宰羊且为乐">
-<meta property="og:url" content="http://pannz.github.io/index.html">
+<meta name="description" content="这篇文章是我在众成翻译上认领的一篇翻译文章，前后断断续续翻译了大概一周时间，翻译的不好大家见谅。原文：Redux vs MobX: Which Is Best for Your Project?’译文：Redux vs MobX: 哪个更适合你的项目 下面是译文： 对于很多 JavaScript 开发者，对 redux 最大的抱怨来主要在于当使用 redux 来实现需求的时候需要写大量的模板代码。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[翻译] Redux vs MobX: Which Is Best for Your Project?">
+<meta property="og:url" content="http://pannz.github.io/2017/07/02/[translation]-Redux-vs-MobX-Which-Is-Best-for-Your-Project/index.html">
 <meta property="og:site_name" content="烹牛宰羊且为乐">
-<meta property="og:description" content="胜天半子">
+<meta property="og:description" content="这篇文章是我在众成翻译上认领的一篇翻译文章，前后断断续续翻译了大概一周时间，翻译的不好大家见谅。原文：Redux vs MobX: Which Is Best for Your Project?’译文：Redux vs MobX: 哪个更适合你的项目 下面是译文： 对于很多 JavaScript 开发者，对 redux 最大的抱怨来主要在于当使用 redux 来实现需求的时候需要写大量的模板代码。">
+<meta property="og:image" content="http://p0.qhimg.com/t0180078822b48182f6.png">
+<meta property="og:updated_time" content="2017-07-02T08:58:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="烹牛宰羊且为乐">
-<meta name="twitter:description" content="胜天半子">
+<meta name="twitter:title" content="[翻译] Redux vs MobX: Which Is Best for Your Project?">
+<meta name="twitter:description" content="这篇文章是我在众成翻译上认领的一篇翻译文章，前后断断续续翻译了大概一周时间，翻译的不好大家见谅。原文：Redux vs MobX: Which Is Best for Your Project?’译文：Redux vs MobX: 哪个更适合你的项目 下面是译文： 对于很多 JavaScript 开发者，对 redux 最大的抱怨来主要在于当使用 redux 来实现需求的时候需要写大量的模板代码。">
+<meta name="twitter:image" content="http://p0.qhimg.com/t0180078822b48182f6.png">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -69,7 +72,7 @@
 
 
 
-    <title> 烹牛宰羊且为乐 </title>
+    <title> [翻译] Redux vs MobX: Which Is Best for Your Project? · 烹牛宰羊且为乐 </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -171,14 +174,12 @@
         <div class="content-wrapper">
           <div id="content" class="content">
             
-  <section id="posts" class="posts">
-    
-      
+  
   <article class="post">
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2017/07/02/[translation]-Redux-vs-MobX-Which-Is-Best-for-Your-Project/">[翻译] Redux vs MobX: Which Is Best for Your Project?</a>
+          [翻译] Redux vs MobX: Which Is Best for Your Project?
         
       </h1>
 
@@ -191,14 +192,17 @@
 
     
     
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#下面是译文："><span class="toc-text">下面是译文：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于作者"><span class="toc-text">关于作者</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redux-和-MobX-有哪些共同点"><span class="toc-text">Redux 和 MobX 有哪些共同点?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-Mobx-的四个理由"><span class="toc-text">使用 Mobx 的四个理由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-易于学习和使用"><span class="toc-text">1. 易于学习和使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-写更少的代码"><span class="toc-text">2. 写更少的代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-完整支持面向对象编程"><span class="toc-text">3. 完整支持面向对象编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-易于处理嵌套数据"><span class="toc-text">4. 易于处理嵌套数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不使用-Mobx-的三个理由"><span class="toc-text">不使用 Mobx 的三个理由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-过于自由"><span class="toc-text">1. 过于自由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-难于调试"><span class="toc-text">2. 难于调试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-可能还有比-Mobx-更好的选择"><span class="toc-text">3. 可能还有比 Mobx 更好的选择</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码比较-Redux-vs-MobX"><span class="toc-text">代码比较: Redux vs MobX</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#初始引导"><span class="toc-text">初始引导</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性注入"><span class="toc-text">属性注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定义-stores-actions-和-reducers"><span class="toc-text">定义 stores, actions, 和 reducers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他不同"><span class="toc-text">其他不同</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+    </div>
+  </div>
+
 
     <div class="post-content">
       
-        
-        
-
-        
-          <p>这篇文章是我在<a href="www.zcfy.cc">众成翻译</a>上认领的一篇翻译文章，前后断断续续翻译了大概一周时间，翻译的不好大家见谅。<br>原文：<a href="https://www.sitepoint.com/redux-vs-mobx-which-is-best/" target="_blank" rel="external">Redux vs MobX: Which Is Best for Your Project?’</a><br>译文：<a href="http://www.zcfy.cc/article/3313" target="_blank" rel="external">Redux vs MobX: 哪个更适合你的项目</a></p>
+        <p>这篇文章是我在<a href="www.zcfy.cc">众成翻译</a>上认领的一篇翻译文章，前后断断续续翻译了大概一周时间，翻译的不好大家见谅。<br>原文：<a href="https://www.sitepoint.com/redux-vs-mobx-which-is-best/" target="_blank" rel="external">Redux vs MobX: Which Is Best for Your Project?’</a><br>译文：<a href="http://www.zcfy.cc/article/3313" target="_blank" rel="external">Redux vs MobX: 哪个更适合你的项目</a></p>
 <h2 id="下面是译文："><a href="#下面是译文：" class="headerlink" title="下面是译文："></a>下面是译文：</h2><p><img src="http://p0.qhimg.com/t0180078822b48182f6.png" alt="Pieces of data shaped like birds, migrating Redux to MobX"></p>
 <p>对于很多 JavaScript 开发者，对 redux 最大的抱怨来主要在于当使用 redux 来实现需求的时候需要写大量的模板代码。一个更好的选择是 mobx，mobx 提供了类似的功能但是只需要写更少量的代码。</p>
 <h3 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h3><ul>
@@ -287,296 +291,85 @@
 <p>如果你需要任何对 Mobx 示例代码的澄清，随时在下面的评论里提问，不知道我有没有给你再下一个 React 项目中尝试 Mobx 的信心。</p>
 <p><em>这篇文章由同行 <a href="https://github.com/annoyingmouse" target="_blank" rel="external">Dominic Myers</a> 和 <a href="https://www.sitepoint.com/author/vildansoftic/" target="_blank" rel="external">Vildan Softic</a> 二人做评审。感谢所有在 SitePoint 上评审的同行，使 SitePoint 能做出最好的内容。</em></p>
 
-        
       
     </div>
 
     
-
-    
-
-  </article>
-
-    
       
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/06/10/flex-layout-note/">flex layout 小记</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017年6月10日
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
       
-        
-        
 
-        
-          <p><img src="http://ww1.sinaimg.cn/large/80e8a39aly1fgqvj4uhkcj20vo0i2tba.jpg" alt=""></p>
-<p>Flex 布局主要思想是让容器有能力让其子元素能够改变其宽度、高度(甚至顺序)，以最佳方式(伸缩)填充可用空间，以防止它们溢出容器。</p>
-<p>几个名词：</p>
-<p><strong>主轴</strong>：伸缩的子元素沿着主轴的方向排列布局，主轴的方向默认情况下是横着的，也有可能是竖着的，这个取决于 <code>flex-direction</code> 这个属性的值。主轴上的子元素的布局由 <code>justify-content</code> 这个属性来设置。<br><strong>侧轴</strong>：与主轴相正交，侧轴上的子元素的布局由 <code>align-items</code> 这个属性来设置<code>flex-wrap</code> 用来定义伸缩项目夫元素 container 单行显示还是多行显示</p>
-<p>对于 contanier, 容器相关的几个属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// container 属性</div><div class="line">.container &#123;</div><div class="line">  display : flex | inline-flex</div><div class="line">  flex-direction : row(默认) | column | row-reverse | column-reverse</div><div class="line">  flex-wrap : nowrap(默认) | wrap | wrap-reverse  </div><div class="line">  flex-flow : &apos;row nowrap&apos; | &apos;column nowrap&apos; | ... </div><div class="line">  // flex-derection + flex-wrap = flex-flow 二者的组合</div><div class="line">  align-content : flex-start | flex-end | center | space-between | space-around | stretch  // align-content 仅作用于多行的，控制每行伸缩项目在伸缩容器内的排列</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>对于 items，伸缩项目子元素的属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// items 属性</div><div class="line">.items &#123;</div><div class="line">  justify-content : flex-start(默认) | flex-end | center | space-between | space-around</div><div class="line">  align-items : flex-start | flex-end | center | baseline | stretch(默认)</div><div class="line">  order : number // 显示顺序</div><div class="line">  flex-grow : number(默认为 0)   // 定义伸缩项目的扩展能力</div><div class="line">  flex-shirnk : number(默认为 1) // 定义伸缩项目的收缩能力</div><div class="line">  flex-basis : length | auto(默认) // 伸缩基准值</div><div class="line">  flex : 0 1 auto</div><div class="line">  // flex 为 flex-grow + flex-shink + flex-basis</div><div class="line">  algin-self : auto | flex-start | flex-end | center | baseline | stretch  // 用来在单独的伸缩项目上覆写默认的对齐方式</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>记住基本使用即可，css tricks上这篇流传极广的文章可做很好的资料：<a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" rel="external">A Complete Guide to Flexbox</a></p>
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>作者: </span>
+      <span>zhifan</span>
+    </p>
+    <p class="copyright-item">
+      <span>来源: </span>
+      <a href="http://pannz.github.io">http://pannz.github.io</a>
+    </p>
+    <p class="copyright-item">
+      <span>链接: </span>
+      <a href="http://pannz.github.io/2017/07/02/[translation]-Redux-vs-MobX-Which-Is-Best-for-Your-Project/">http://pannz.github.io/2017/07/02/[translation]-Redux-vs-MobX-Which-Is-Best-for-Your-Project/</a>
+    </p>
 
-        
+    <p class="copyright-item lincese">
       
-    </div>
+      本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+    </p>
+  </div>
 
-    
 
-    
 
-  </article>
-
-    
       
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/05/31/good-taste-and-bad-smell-in-coding-design-and-more/">代码的好品味与坏味道</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017年5月31日
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
       
-        
-        
-
-        
-          <p>记几篇有关品味的文章</p>
-<p><a href="!http://apple4us.com/2009/07/taste-for-makers/">taste for maker</a><br><a href="!http://www.cnblogs.com/cathsfz/archive/2010/02/01/1660909.html">程序员的品味</a><br><a href="!http://www.jtianling.com/how-to-be-a-good-programmer.html">漫谈好程序员的标准</a></p>
-<p>我觉得很重要的一点是：<strong>思考</strong>，写代码的时候多花时间思考，看到代码堆积（出现bad smell）的时候就应该想到重构，代码终究是由人来维护的，写一堆烂代码比不写还要糟糕。产品设计也一样适用，不好的设计还不如没有设计，我们应当广泛浏览，注重思考，多实践，为己所用。</p>
-<p>taste !</p>
-
-        
+  <div class="post-reward">
+    <input type="checkbox" name="reward" id="reward" hidden />
+    <label class="reward-button" for="reward">赞赏支持</label>
+    <div class="qr-code">
+      
+      
+        <label class="qr-code-image" for="reward">
+          <img class="image" src="/image/reward/wechat.png" title="wechat">
+        </label>
+      
+      
+        <label class="qr-code-image" for="reward">
+          <img class="image" src="/image/reward/alipay.png" title="alipay">
+        </label>
       
     </div>
+  </div>
 
     
 
     
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
+      <footer class="post-footer">
         
-          <a class="post-link" href="/2017/05/22/about-well-being-of-a-startup/">创业公司的福利与程序猿标配之我见</a>
         
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017年5月22日
-        </span>
-      </div>
-    </header>
-
+        
+  <nav class="post-nav">
     
     
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p>最近在好几个地方看到关于创业公司的福利的探讨<a href="https://www.zhihu.com/question/33713050" target="_blank" rel="external">初创公司，应该设置哪些员工福利比较好呢？</a>和公司福利和给程序猿的标准配备等微博观点。</p>
-<p>我想起了我前公司，前前公司和现在公司的对比，说几句话。</p>
-<p>先说后面一个吧，首先，我是一枚程序猿。私以为，公司给程序猿的硬件标配应当要</p>
-<ol>
-<li>15寸，16G内存，512G SSD的rmbp. （这个没什么可说的，相比于13寸，或者8G内存，15寸，16G内存显然优势很大，而贵不过5k块钱，值得)</li>
-<li>加配一个27寸U系列dell外接显示器。（什么，还配p系列，what？）</li>
-<li>键盘可配可不配（看个人需求）</li>
-<li>工作空间应该至少1平方米吧（按至少1.2 * 0.8计算，真的很小了，显示器+笔记本+（外接键盘）+（另一个显示器）+书，纸小收纳+（小盆栽）+一定的空白…）</li>
-<li>椅子至少也要是人体工程学椅子（不说要是herman miller，但是一个好一点到椅子，对程序猿这种长期坐在电脑前写代码的群体来说是很有必要）</li>
-</ol>
-<p>想象一下，一天有多少时间一个程序员将要和这些硬件打交道，配好一点难道不应该吗？一把好的椅子，关系的是程序员的健康，不应该随便。空间我说至少1平方米，我的观点是大一点的空间会都对灵感的产生，效率的提升有不少益处。急促于一个狭小的空间我个人觉得是很受拘谨。</p>
-<p>再说福利吧。我觉得对于程序员来说，福利更好是实实在在的。不是说实实在在的物品或者金钱，更好是能够多邀请外面的大牛来分享学习，或者组织内部分享交流，学习跨职责岗位部分的同事的技能和思维方式，提升自我是最好的福利。还有就是，员工老板氛围好，无缝交流开玩笑，多好。</p>
-<p>总之，boss想要员工齐心工作，还是多走心。而且这些硬件设备，不是易耗品，除了电脑用三年，其他可以用好几年的。</p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/05/07/Immutable-js-little-note/">little note for Immutable.js</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017年5月7日
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p>在react里面，每调用一次<code>setState</code>方法都会触发(一般情况对于state变化shouldComponentUpdate方法里都是return true)<code>Virtual DOM</code>的Diff操作，尽管可能并未更新原生DOM，Diff操作也会带来性能的开销。</p>
-<p>而对于<code>Mutable</code>的对象的低效率操作主要体现在复制和比较上，而<code>Immutable</code>对象就是解决了这两大低效的痛点。<br>普通的<code>Mutable</code>对象的深拷贝操作会将一整份数据都复制一遍，而<code>Immutable</code>对象在修改数据时并不会复制一整份数据，而是将变化的节点与未变化的节点的父子关系转移到一个新节点上，类似于链表的结构。从 “复制” 的角度来看，做到了最小化的复制，未变化的部分都是共享的，<code>Mutable</code>在复制的时候是 “全量”，而<code>Immutable</code>复制的是 “增量”，对于内存空间的使用率的比较高低立判。<br>并且基于每次修改一个<code>Immutable</code>对象都会创建一个新的<code>Immutable</code>对象的这种特性可以将数据的修改状态保存成一组快照，这也是挺方便的。</p>
-<p>部分出自雨夜带刀blog文章<a href="http://stylechen.com/react-and-immutable.html" target="_blank" rel="external">从 React 的组件更新谈 Immutable 的应用</a>, 有改动。</p>
-<p>对于immutable，如果用多一点，你会发现一个库seamless-immutable，使immutable使用更加无缝</p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/05/06/git-cooperate-note/">git协作小记</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017年5月6日
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p>一直以来，我在前几家公司的git协作方式都是使用git分支来协作的：以<code>master</code>分支作为线上部署代码来源，通过<code>master</code>上打tag，以打的tag的版本号来作为发布版本。<br>开发的都是以<code>develop</code>作为开发分支，类似<code>gitflow</code>的协作模型，各个开发从<code>develop</code>分支checkout出新分支，比如 <code>feature/someFeature</code>，或者<code>bugfix/bugMum</code>等，当然不一定完全遵守<code>gitflow</code>模型，总体思路是一致的。合并的时候一般对分支作权限，比如一般开发没有往<code>develop</code>的push或者merge权限，需要在本地自己的开发分支先merge <code>develop</code>分支代码，然后发起一个pull request（gitlab为merge request）这样项目负责人accept pr的时候就不会发生冲突。</p>
-<p>最近在新公司采取的是另外一种git协作模式，采用的fork协作。就是对源代码fork一份代码出来，然后本地自己开发，同时需要sync源库的代码。挺奇怪的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add upstream git@github:yourgitrepo.git</div></pre></td></tr></table></figure>
-<p>然后sync远程的源库代码需要</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git fetch upstream</div></pre></td></tr></table></figure>
-<p>这样本地就会同步一份远程的源库代码在本地的.git/refs/remote/upstream这里，<br>然后merge远程的源库develop分支就需要</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">get merge upstream/develop</div></pre></td></tr></table></figure>
-<p>两种协作模式都有很多人用，但是我觉得这两种协作方式应该是有不同到协作场景的。在团队协作上，我推荐前一种方式，应为我觉得git的精髓就是它的分支特性，git的分支协作可以生成一个结构完整的树状git commit的log记录。fork更适合开源项目的协作方式，如果一个在团队内进行协作使用fork模式，如果有两个或者多个人开发同一个feature，这样是没法协作的，应为他们在不同到fork上开发，代码不能随时同步。</p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/05/02/multi-ssh-key-with-github-gitlab-bitbucket/">多ssh key管理github/gitlab/bitbucket记录</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017年5月2日
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p>记得刚工作的时候有记录过这个问题，但是后来也不知道弄那里去了，这次再次配置，记录一下</p>
-<p>其实就是添加了一个ssh的config文件来管理不同的host使用不同的rsa文件。<br>默认情况下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// generate email_1 ssh key</div><div class="line">// ssh-keygen生成的id_rsa合is_rsa.pub文件</div><div class="line">ssh ssh-keygen -t ras -C &quot;email_1@gmail.com&quot;</div><div class="line"></div><div class="line">// generate email_2 ssh key</div><div class="line">ssh ssh-keygen -t ras -C &quot;email_2@gmail.com&quot;</div><div class="line">// 应为已经有一个加密id_rsa和id_rsa.pub文件了，这里这时候会提示说&quot;enter file in witch to safe the key(User/name/.ssh/id_pub)&quot;,   </div><div class="line">// 如果接下来全部按enter, 则新生成的rsa文件会覆盖同名的属于email_1的rsa文件，这时候应该输入一个新的文件名比如 id_pub_gitlab(或者id_pub_bitbucket/...)</div></pre></td></tr></table></figure>
-<p>然后就可以把对应的id_pub_x?x.pub粘贴到你的托管服务的ssh key里。</p>
-<p>新建完id_rsa文件后，往不同到codebase里pull或者push，怎么识别对应的id_rsa呢，这时候就需要一个config文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">touch config</div><div class="line">// config content</div><div class="line"></div><div class="line"># github</div><div class="line">Host github</div><div class="line">  HostName github.com</div><div class="line">  IdentityFile ~/.ssh/id_rsa</div><div class="line">  User git</div><div class="line"></div><div class="line"># gitlab</div><div class="line">Host gitlab</div><div class="line">  # customize hostname: code.company.com</div><div class="line">  HostName gitlab.com</div><div class="line">  IdentityFile ~/.ssh/id_pub_gitlab </div><div class="line">  User git</div><div class="line"></div><div class="line"># bitbucket</div><div class="line">Host bitbucket</div><div class="line">  HostName bitbucket.com</div><div class="line">  IdentityFile ~/.ssh/id_pub_bitbucket</div><div class="line">  User git</div></pre></td></tr></table></figure>
-<p>这样配置后，使用ssh -T命令来查看是否能正确连接上服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh -T git@github.om</div><div class="line">ssh -T git@gitlab.com</div></pre></td></tr></table></figure>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    
+      <a class="next" href="/2017/06/10/flex-layout-note/">
+        <span class="next-text nav-default">flex layout 小记</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
     
   </nav>
+
+      </footer>
+    
+
+  </article>
 
 
           </div>
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>  
       </main>
@@ -659,6 +452,12 @@
     </div>
 
     
+  
+
+  
+  
+
+
 
 
     
