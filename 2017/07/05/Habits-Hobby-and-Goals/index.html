@@ -12,12 +12,12 @@
 
 
 
-  <meta name="description" content="flex layout 小记"/>
+  <meta name="description" content="Habits, Hobby and Goals"/>
 
 
 
 
-  <meta name="keywords" content="flex," />
+  <meta name="keywords" content="思考," />
 
 
 
@@ -31,22 +31,20 @@
 
 
 
-<link rel="canonical" href="http://pannz.github.io/2017/06/10/flex-layout-note/"/>
+<link rel="canonical" href="http://pannz.github.io/2017/07/05/Habits-Hobby-and-Goals/"/>
 
 
-<meta name="description" content="Flex 布局主要思想是让容器有能力让其子元素能够改变其宽度、高度(甚至顺序)，以最佳方式(伸缩)填充可用空间，以防止它们溢出容器。">
-<meta name="keywords" content="flex">
+<meta name="description" content="前一段时间看到朋友圈里一个同学发表了一个状态，大致是“常常想到为了完成博士学业，我每天做研究做实验这些让我觉得心累但又不得不坚持，看不到未来，然而换个角度看，我每天都在做的事都是我的还蛮喜欢的东西，把它作为一种爱好，这么想日子好像一下子就轻松了下来。”（由于她设置朋友圈只看到三天内的状态，写这篇的时候回找已经看不到了） 这当时让我很受触动，我一下子想到了关于爱好，习惯和目标这几个词组。每天都朝着某">
+<meta name="keywords" content="思考">
 <meta property="og:type" content="article">
-<meta property="og:title" content="flex layout 小记">
-<meta property="og:url" content="http://pannz.github.io/2017/06/10/flex-layout-note/index.html">
+<meta property="og:title" content="Habits, Hobby and Goals">
+<meta property="og:url" content="http://pannz.github.io/2017/07/05/Habits-Hobby-and-Goals/index.html">
 <meta property="og:site_name" content="烹牛宰羊且为乐">
-<meta property="og:description" content="Flex 布局主要思想是让容器有能力让其子元素能够改变其宽度、高度(甚至顺序)，以最佳方式(伸缩)填充可用空间，以防止它们溢出容器。">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/80e8a39aly1fgqvj4uhkcj20vo0i2tba.jpg">
-<meta property="og:updated_time" content="2017-07-02T09:06:37.000Z">
+<meta property="og:description" content="前一段时间看到朋友圈里一个同学发表了一个状态，大致是“常常想到为了完成博士学业，我每天做研究做实验这些让我觉得心累但又不得不坚持，看不到未来，然而换个角度看，我每天都在做的事都是我的还蛮喜欢的东西，把它作为一种爱好，这么想日子好像一下子就轻松了下来。”（由于她设置朋友圈只看到三天内的状态，写这篇的时候回找已经看不到了） 这当时让我很受触动，我一下子想到了关于爱好，习惯和目标这几个词组。每天都朝着某">
+<meta property="og:updated_time" content="2017-07-06T10:16:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="flex layout 小记">
-<meta name="twitter:description" content="Flex 布局主要思想是让容器有能力让其子元素能够改变其宽度、高度(甚至顺序)，以最佳方式(伸缩)填充可用空间，以防止它们溢出容器。">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/80e8a39aly1fgqvj4uhkcj20vo0i2tba.jpg">
+<meta name="twitter:title" content="Habits, Hobby and Goals">
+<meta name="twitter:description" content="前一段时间看到朋友圈里一个同学发表了一个状态，大致是“常常想到为了完成博士学业，我每天做研究做实验这些让我觉得心累但又不得不坚持，看不到未来，然而换个角度看，我每天都在做的事都是我的还蛮喜欢的东西，把它作为一种爱好，这么想日子好像一下子就轻松了下来。”（由于她设置朋友圈只看到三天内的状态，写这篇的时候回找已经看不到了） 这当时让我很受触动，我一下子想到了关于爱好，习惯和目标这几个词组。每天都朝着某">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -75,7 +73,7 @@
 
 
 
-    <title> flex layout 小记 · 烹牛宰羊且为乐 </title>
+    <title> Habits, Hobby and Goals · 烹牛宰羊且为乐 </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -182,13 +180,13 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          flex layout 小记
+          Habits, Hobby and Goals
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2017年6月10日
+          2017年7月5日
         </span>
       </div>
     </header>
@@ -198,16 +196,9 @@
 
     <div class="post-content">
       
-        <p><img src="http://ww1.sinaimg.cn/large/80e8a39aly1fgqvj4uhkcj20vo0i2tba.jpg" alt=""></p>
-<p>Flex 布局主要思想是让容器有能力让其子元素能够改变其宽度、高度(甚至顺序)，以最佳方式(伸缩)填充可用空间，以防止它们溢出容器。</p>
-<a id="more"></a>
-<p>几个名词：</p>
-<p><strong>主轴</strong>：伸缩的子元素沿着主轴的方向排列布局，主轴的方向默认情况下是横着的，也有可能是竖着的，这个取决于 <code>flex-direction</code> 这个属性的值。主轴上的子元素的布局由 <code>justify-content</code> 这个属性来设置。<br><strong>侧轴</strong>：与主轴相正交，侧轴上的子元素的布局由 <code>align-items</code> 这个属性来设置<code>flex-wrap</code> 用来定义伸缩项目夫元素 container 单行显示还是多行显示</p>
-<p>对于 contanier, 容器相关的几个属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// container 属性</div><div class="line">.container &#123;</div><div class="line">  display : flex | inline-flex</div><div class="line">  flex-direction : row(默认) | column | row-reverse | column-reverse</div><div class="line">  flex-wrap : nowrap(默认) | wrap | wrap-reverse  </div><div class="line">  flex-flow : &apos;row nowrap&apos; | &apos;column nowrap&apos; | ... </div><div class="line">  // flex-derection + flex-wrap = flex-flow 二者的组合</div><div class="line">  align-content : flex-start | flex-end | center | space-between | space-around | stretch  // align-content 仅作用于多行的，控制每行伸缩项目在伸缩容器内的排列</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>对于 items，伸缩项目子元素的属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// items 属性</div><div class="line">.items &#123;</div><div class="line">  justify-content : flex-start(默认) | flex-end | center | space-between | space-around</div><div class="line">  align-items : flex-start | flex-end | center | baseline | stretch(默认)</div><div class="line">  order : number // 显示顺序</div><div class="line">  flex-grow : number(默认为 0)   // 定义伸缩项目的扩展能力</div><div class="line">  flex-shirnk : number(默认为 1) // 定义伸缩项目的收缩能力</div><div class="line">  flex-basis : length | auto(默认) // 伸缩基准值</div><div class="line">  flex : 0 1 auto</div><div class="line">  // flex 为 flex-grow + flex-shink + flex-basis</div><div class="line">  algin-self : auto | flex-start | flex-end | center | baseline | stretch  // 用来在单独的伸缩项目上覆写默认的对齐方式</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>记住基本使用即可，css tricks上这篇流传极广的文章可做很好的资料：<a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" rel="external">A Complete Guide to Flexbox</a></p>
+        <p>前一段时间看到朋友圈里一个同学发表了一个状态，大致是“常常想到为了完成博士学业，我每天做研究做实验这些让我觉得心累但又不得不坚持，看不到未来，然而换个角度看，我每天都在做的事都是我的还蛮喜欢的东西，把它作为一种爱好，这么想日子好像一下子就轻松了下来。”<br>（由于她设置朋友圈只看到三天内的状态，写这篇的时候回找已经看不到了）</p>
+<p>这当时让我很受触动，我一下子想到了关于<code>爱好</code>，<code>习惯</code>和<code>目标</code>这几个词组。每天都朝着某个目标坚持不懈固然很厉害，但是长久之下，你是否还有那份初心？长时间的坚持，每天枯燥繁累，不知到什么时候能够达到目标。这个旅程必然是十分煎熬。<br>既然这个过程这么多煎熬，那为什么要坚持呢？于是放弃。<br>或者那要怎么坚持呢，换一种思维方式，把你所做到当成一种爱好，养成习惯，每天都在做自己的爱好，那煎熬也就变成乐趣了。</p>
+<p>如果你坚持不动了，回顾一下，这些是否是你喜欢做的？能否变成你的爱好？养成一个习惯，做自己的爱好，不用坚持，水到渠成。</p>
 
       
     </div>
@@ -227,7 +218,7 @@
     </p>
     <p class="copyright-item">
       <span>链接: </span>
-      <a href="http://pannz.github.io/2017/06/10/flex-layout-note/">http://pannz.github.io/2017/06/10/flex-layout-note/</a>
+      <a href="http://pannz.github.io/2017/07/05/Habits-Hobby-and-Goals/">http://pannz.github.io/2017/07/05/Habits-Hobby-and-Goals/</a>
     </p>
 
     <p class="copyright-item lincese">
@@ -265,7 +256,7 @@
         
           <div class="post-tags">
             
-              <a href="/tags/flex/">flex</a>
+              <a href="/tags/思考/">思考</a>
             
           </div>
         
@@ -273,15 +264,15 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2017/07/02/translation-Redux-vs-MobX-Which-Is-Best-for-Your-Project/">
+      <a class="prev" href="/2017/07/10/translation-JavaScript-Decorators-What-They-Are-and-When-to-Use-Them/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">[翻译] Redux vs MobX: Which Is Best for Your Project?</span>
+        <span class="prev-text nav-default">[翻译] 什么是 JavaScript 装饰器？应该在什么时候使用 JavaScript 装饰器？</span>
         <span class="prev-text nav-mobile">Prev</span>
       </a>
     
     
-      <a class="next" href="/2017/05/31/good-taste-and-bad-smell-in-coding-design-and-more/">
-        <span class="next-text nav-default">代码的好品味与坏味道</span>
+      <a class="next" href="/2017/07/02/translation-Redux-vs-MobX-Which-Is-Best-for-Your-Project/">
+        <span class="next-text nav-default">[翻译] Redux vs MobX: Which Is Best for Your Project?</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
